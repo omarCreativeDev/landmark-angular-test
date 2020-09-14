@@ -1,6 +1,6 @@
 <!-- spinner -->
 <div
-  *ngIf="loading; else notLoading"
+  *ngIf="loading$ | async; else notLoading"
   class="d-flex align-content-center justify-content-center align-items-center progress-spinner"
 >
   <mat-spinner></mat-spinner>
