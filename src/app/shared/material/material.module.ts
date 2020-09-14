@@ -5,6 +5,9 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTableModule } from '@angular/material/table';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 
 const materialModules = [
   MatToolbarModule,
@@ -12,6 +15,9 @@ const materialModules = [
   MatSnackBarModule,
   MatTableModule,
   MatProgressSpinnerModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatIconModule,
 ];
 
 @NgModule({
