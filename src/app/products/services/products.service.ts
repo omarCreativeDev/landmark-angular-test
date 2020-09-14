@@ -6,12 +6,22 @@ import { Product } from '../interfaces';
 @Injectable({
   providedIn: 'root',
 })
-export class ListService {
+export class ProductsService {
+  public loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
+    true
+  );
   public products$: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>(
     null
   );
 
   public listProducts(): Observable<Product[]> {
     return of(PRODUCT_DATA);
+  }
+
+  public searchProducts(searchQuery: string): Observable<Product[]> {
+    const mockedSearchResults: Product[] = PRODUCT_DATA.filter(
+      (item: Product) => item.name === searchQuery
+    );
+    return of(mockedSearchResults);
   }
 }
