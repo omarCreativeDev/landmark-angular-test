@@ -9,6 +9,6 @@ const components = [HeaderComponent, FooterComponent];
 @NgModule({
   declarations: [...components],
   imports: [RouterModule, MaterialModule],
-  exports: [...components],
+  exports: [...components, MaterialModule],
 })
 export class SharedModule {}
