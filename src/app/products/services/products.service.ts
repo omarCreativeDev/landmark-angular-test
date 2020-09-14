@@ -13,6 +13,7 @@ export class ProductsService {
   public products$: BehaviorSubject<Product[]> = new BehaviorSubject<Product[]>(
     null
   );
+  public displayedColumns: string[] = ['name', 'stock', 'updated', 'price'];
 
   public listProducts(): Observable<Product[]> {
     return of(PRODUCT_DATA);
