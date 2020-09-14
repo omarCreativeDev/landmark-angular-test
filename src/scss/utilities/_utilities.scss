@@ -1,0 +1,73 @@
+// re-usable styles and mixins
+.no-decoration-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.collapsed {
+  visibility: collapse;
+}
+
+.no-height {
+  height: 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.table-container {
+  overflow: auto;
+  position: relative;
+}
+
+.hidden,
+.hide,
+[hidden] {
+  display: none;
+}
+
+.centered {
+  justify-content: center;
+  text-align: center;
+}
+
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 1s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.mat-simple-snackbar > span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.progress-spinner {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+}
