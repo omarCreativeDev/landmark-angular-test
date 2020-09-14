@@ -18,9 +18,9 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'landmark-angular-test-MOCK'`, () => {
+  it(`should have as title 'landmark-angular-test'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('landmark-angular-test-MOCK');
+    expect(app.title).toEqual('landmark-angular-test');
   });
 });
