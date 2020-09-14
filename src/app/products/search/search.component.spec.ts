@@ -53,4 +53,14 @@ describe('SearchComponent', () => {
     component.searchProducts('banana');
     expect(service.searchProducts).toHaveBeenCalledWith('banana');
   });
+
+  it('should reset form and set loading to true', () => {
+    spyOn(component.ngForm, 'resetForm');
+    spyOn(service.loading$, 'next');
+
+    component.resetSearch();
+
+    expect(component.ngForm.resetForm).toHaveBeenCalled();
+    expect(service.loading$.next).toHaveBeenCalledWith(true);
+  });
 });

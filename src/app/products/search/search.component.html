@@ -1,10 +1,11 @@
 <form
   (ngSubmit)="checkForm()"
   [formGroup]="form"
+  #ngForm="ngForm"
   autocomplete="off"
   class="mt-10 ml-20 mb-10"
 >
-  <mat-form-field>
+  <mat-form-field class="mr-10">
     <mat-label>Search products</mat-label>
     <input
       matInput
@@ -23,4 +24,16 @@
     </button>
     <mat-error *ngIf="form.invalid">No search terms entered</mat-error>
   </mat-form-field>
+
+  <button
+    mat-button
+    matSuffix
+    color="primary"
+    aria-label="Reset search"
+    type="button"
+    (click)="resetSearch()"
+  >
+    <mat-icon aria-label="reset icon">undo</mat-icon>
+    Reset
+  </button>
 </form>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Product } from '../interfaces';
 import { ProductsService } from '../services/products.service';
@@ -11,6 +11,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SearchComponent implements OnInit {
   public form: FormGroup;
+  @ViewChild('ngForm') public ngForm;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -43,6 +44,23 @@ export class SearchComponent implements OnInit {
 
     return this.productsService
       .searchProducts(searchQuery)
+      .pipe(
+        take(1),
+        delay(1000),
+        finalize(() => this.productsService.loading$.next(false))
+      )
+      .subscribe((response: Product[]) =>
+        this.productsService.products$.next(response)
+      );
+  }
+
+  public resetSearch(): Subscription {
+    this.ngForm.resetForm();
+    this.form.reset();
+    this.productsService.loading$.next(true);
+
+    return this.productsService
+      .listProducts()
       .pipe(
         take(1),
         delay(1000),
