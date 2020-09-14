@@ -22,6 +22,7 @@ export class ProductDetailService {
     const mockedProductDetail: Product = PRODUCT_DATA.filter(
       (item: Product) => item.name === productName
     )[0];
-    return of(mockedProductDetail);
+
+    return of(mockedProductDetail ? mockedProductDetail : false);
   }
 }
