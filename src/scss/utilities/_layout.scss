@@ -140,6 +140,10 @@
   align-self: end;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 // grid layouts
 .grid-container-2-col {
   grid-template-columns: 1fr 1fr;
