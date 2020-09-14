@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material/material.module';
 import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
-const shared = [HeaderComponent];
+const components = [HeaderComponent, FooterComponent];
 
 @NgModule({
-  declarations: [...shared],
+  declarations: [...components],
   imports: [RouterModule, MaterialModule],
-  exports: [...shared],
+  exports: [...components],
 })
 export class SharedModule {}
