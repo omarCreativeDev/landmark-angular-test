@@ -1,18 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListComponent } from './list.component';
-import { ListService } from '../services/list.service';
+import { ProductsService } from '../services/products.service';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 describe('ListComponent', () => {
   let component: ListComponent;
   let fixture: ComponentFixture<ListComponent>;
-  let service: ListService;
+  let service: ProductsService;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ListComponent],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
-    service = TestBed.inject(ListService);
+    service = TestBed.inject(ProductsService);
   }));
 
   beforeEach(() => {
