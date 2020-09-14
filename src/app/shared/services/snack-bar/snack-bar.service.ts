@@ -11,7 +11,7 @@ import {
 export class SnackBarService {
   public horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   public verticalPosition: MatSnackBarVerticalPosition = 'top';
-  public snackBarDuration = 10000;
+  public snackBarDuration = 3000;
 
   constructor(private snackBar: MatSnackBar) {}
 

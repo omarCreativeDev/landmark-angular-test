@@ -33,14 +33,8 @@
     <!-- Price Column -->
     <ng-container matColumnDef="price">
       <th mat-header-cell *matHeaderCellDef>price</th>
-      <td mat-cell *matCellDef="let element">&pound;{{ element.price }}</td>
-    </ng-container>
-
-    <!-- Edit Column -->
-    <ng-container matColumnDef="edit">
-      <th mat-header-cell *matHeaderCellDef>edit</th>
       <td mat-cell *matCellDef="let element">
-        <app-edit-price></app-edit-price>
+        <app-edit-price [product]="element"></app-edit-price>
       </td>
     </ng-container>
 

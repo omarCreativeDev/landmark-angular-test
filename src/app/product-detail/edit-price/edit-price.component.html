@@ -1,9 +1,38 @@
-<button
-  mat-raised-button
-  matSuffix
-  color="primary"
-  aria-label="Edit price"
-  type="button"
+<form
+  (ngSubmit)="checkForm()"
+  [formGroup]="form"
+  #ngForm="ngForm"
+  autocomplete="off"
 >
-  Edit price
-</button>
+  <mat-form-field class="mr-10">
+    <mat-label>Edit price</mat-label>
+    <input
+      matInput
+      type="number"
+      [formControlName]="'price'"
+      [placeholder]="'Enter a price'"
+    />
+    <button
+      mat-raised-button
+      matSuffix
+      color="primary"
+      aria-label="Edit price"
+      type="submit"
+    >
+      Submit
+    </button>
+    <mat-error *ngIf="form.invalid">No price entered</mat-error>
+  </mat-form-field>
+
+  <button
+    mat-button
+    matSuffix
+    color="primary"
+    aria-label="Clear price"
+    type="button"
+    (click)="resetForm()"
+  >
+    <mat-icon aria-label="reset icon">undo</mat-icon>
+    Reset
+  </button>
+</form>

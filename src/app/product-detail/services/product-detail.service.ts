@@ -11,10 +11,7 @@ export class ProductDetailService {
   public loading$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(
     true
   );
-  public displayedColumns: string[] = [
-    ...this.productsService.displayedColumns,
-    'edit',
-  ];
+  public displayedColumns: string[] = this.productsService.displayedColumns;
 
   constructor(private productsService: ProductsService) {}
 
@@ -24,5 +21,15 @@ export class ProductDetailService {
     )[0];
 
     return of(mockedProductDetail ? mockedProductDetail : false);
+  }
+
+  public editPrice(productName: string, price: number): Observable<boolean> {
+    PRODUCT_DATA.map((item: Product) => {
+      if (item.name === productName) {
+        item.price = price;
+      }
+    });
+
+    return of(true);
   }
 }
