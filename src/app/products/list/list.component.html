@@ -7,7 +7,11 @@
 </div>
 
 <ng-template #notLoading>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 w-100">
+  <table
+    mat-table
+    [dataSource]="products$ | async"
+    class="mat-elevation-z8 w-100"
+  >
     <!-- Name Column -->
     <ng-container matColumnDef="name">
       <th mat-header-cell *matHeaderCellDef>Name</th>

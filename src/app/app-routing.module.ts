@@ -4,12 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/list',
+    redirectTo: '/products',
     pathMatch: 'full',
   },
   {
-    path: 'list',
-    loadChildren: () => import('./list/list.module').then((m) => m.ListModule),
+    path: 'products',
+    loadChildren: () =>
+      import('./products/products.module').then((m) => m.ProductsModule),
   },
   {
     path: 'view',

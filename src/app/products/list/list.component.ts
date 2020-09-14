@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../interfaces';
 import { ListService } from '../services/list.service';
 import { delay, finalize, take } from 'rxjs/operators';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { Product } from '../interfaces';
 
 @Component({
   selector: 'app-list',
@@ -11,7 +11,7 @@ import { Subscription } from 'rxjs';
 export class ListComponent implements OnInit {
   public loading = true;
   public displayedColumns: string[] = ['name', 'stock', 'updated', 'price'];
-  public dataSource: Product[];
+  public products$: Observable<Product[]> = this.listService.products$;
 
   constructor(private listService: ListService) {}
 
@@ -27,6 +27,6 @@ export class ListComponent implements OnInit {
         delay(1000),
         finalize(() => (this.loading = false))
       )
-      .subscribe((response) => (this.dataSource = response));
+      .subscribe((response) => this.listService.products$.next(response));
   }
 }
