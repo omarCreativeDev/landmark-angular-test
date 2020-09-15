@@ -145,9 +145,9 @@
 }
 
 // grid layouts
-.grid-container-2-col {
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 15px;
+.grid-container-4-col {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
 
   @media screen and (#{$mat-small}) {
     grid-template-columns: auto;
