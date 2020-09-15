@@ -36,15 +36,9 @@ export class EditPriceComponent implements OnInit {
   }
 
   public setupForm(): void {
-    this.form = this.formBuilder.group(
-      {
-        price: [
-          this.product ? this.product.price : null,
-          [Validators.required],
-        ],
-      },
-      { updateOn: 'submit' }
-    );
+    this.form = this.formBuilder.group({
+      price: [this.product ? this.product.price : null, [Validators.required]],
+    });
   }
 
   public resetForm(): void {

@@ -31,12 +31,9 @@ export class SearchComponent implements OnInit {
   }
 
   public setupForm(): void {
-    this.form = this.formBuilder.group(
-      {
-        searchQuery: [null, [Validators.required]],
-      },
-      { updateOn: 'submit' }
-    );
+    this.form = this.formBuilder.group({
+      searchQuery: [null, [Validators.required]],
+    });
   }
 
   public searchProducts(searchQuery: string): Subscription {
