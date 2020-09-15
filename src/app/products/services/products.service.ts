@@ -14,9 +14,10 @@ export class ProductsService {
     null
   );
   public displayedColumns: string[] = ['name', 'stock', 'updated', 'price'];
+  public products: Product[] = PRODUCT_DATA;
 
   public listProducts(): Observable<Product[]> {
-    return of(PRODUCT_DATA);
+    return of(this.products);
   }
 
   public searchProducts(searchQuery: string): Observable<Product[]> {
