@@ -13,13 +13,13 @@ export class UploadProductsService {
 
   constructor(private productsService: ProductsService) {}
 
-  public uploadProducts(product: Product): Observable<boolean> {
+  public uploadProducts(product: Product): Observable<Product[]> {
     this.productsService.products = [
       {
         ...product,
         updated: new Date().toString(),
       },
     ];
-    return of(true);
+    return of(this.productsService.products);
   }
 }

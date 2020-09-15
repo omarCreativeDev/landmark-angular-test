@@ -5,6 +5,8 @@ import { Subscription } from 'rxjs';
 import { delay, finalize, take } from 'rxjs/operators';
 import { UploadProductsService } from '../services/upload-products.service';
 import { SnackBarService } from '../../shared/services/snack-bar/snack-bar.service';
+import { ProductsService } from '../../products/services/products.service';
+import { Product } from '../../products/interfaces';
 
 @Component({
   selector: 'app-upload-form',
@@ -17,6 +19,7 @@ export class UploadFormComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private uploadProductsService: UploadProductsService,
+    private productsService: ProductsService,
     private router: Router,
     private snackBarService: SnackBarService
   ) {}
@@ -52,7 +55,8 @@ export class UploadFormComponent implements OnInit {
           this.router.navigate(['products']);
         })
       )
-      .subscribe(() => {
+      .subscribe((response: Product[]) => {
+        this.productsService.products$.next(response);
         this.snackBarService.openSnackBar('Products uploaded successfully!');
       });
   }
