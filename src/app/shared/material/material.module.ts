@@ -8,6 +8,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSortModule } from '@angular/material/sort';
 
 const materialModules = [
   MatToolbarModule,
@@ -18,6 +19,7 @@ const materialModules = [
   MatFormFieldModule,
   MatInputModule,
   MatIconModule,
+  MatSortModule,
 ];
 
 @NgModule({
