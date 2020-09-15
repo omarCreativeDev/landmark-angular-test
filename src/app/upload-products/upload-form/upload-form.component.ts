@@ -44,6 +44,10 @@ export class UploadFormComponent implements OnInit {
     });
   }
 
+  public createFormGroup(): any {
+    this.items.push(this.addFormGroup());
+  }
+
   public addFormGroup(): FormGroup {
     return this.formBuilder.group({
       name: [null, [Validators.required]],

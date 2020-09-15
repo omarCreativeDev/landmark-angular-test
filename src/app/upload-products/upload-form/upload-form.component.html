@@ -37,18 +37,30 @@
             />
             <mat-error *ngIf="form.invalid">No price entered</mat-error>
           </mat-form-field>
-
-          <button
-            mat-raised-button
-            matSuffix
-            color="primary"
-            aria-label="Upload products"
-            type="submit"
-            class="submit-button"
-          >
-            Upload
-          </button>
         </div>
+      </div>
+
+      <div class="mt-30">
+        <button
+          mat-raised-button
+          matSuffix
+          aria-label="Add another product"
+          type="button"
+          (click)="createFormGroup()"
+        >
+          Add another product
+        </button>
+
+        <button
+          mat-raised-button
+          matSuffix
+          color="primary"
+          aria-label="Upload products"
+          type="submit"
+          class="submit-button"
+        >
+          Upload
+        </button>
       </div>
     </div>
   </form>
