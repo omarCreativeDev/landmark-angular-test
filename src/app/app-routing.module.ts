@@ -20,9 +20,11 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'upload',
+    path: 'upload-products',
     loadChildren: () =>
-      import('./upload/upload.module').then((m) => m.UploadModule),
+      import('./upload-products/upload-products.module').then(
+        (m) => m.UploadProductsModule
+      ),
   },
 ];
 

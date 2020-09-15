@@ -9,7 +9,6 @@ import { PRODUCT_DATA } from '../../products/constants';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ProductDetailService } from '../services/product-detail.service';
 import { SnackBarService } from '../../shared/services/snack-bar/snack-bar.service';
-import { of } from 'rxjs';
 
 describe('EditPriceComponent', () => {
   let component: EditPriceComponent;
@@ -66,7 +65,7 @@ describe('EditPriceComponent', () => {
     expect(component.form.reset).toHaveBeenCalled();
   });
 
-  it('should edit price and invoke snack bar', () => {
+  it('should edit price', () => {
     spyOn(productDetailService, 'editPrice').and.callThrough();
     component.editPrice(1.99);
     expect(productDetailService.editPrice).toHaveBeenCalled();
