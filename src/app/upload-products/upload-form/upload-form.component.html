@@ -1,54 +1,55 @@
 <div class="p-20">
   <h1>Upload Products</h1>
 
-  <form
-    (ngSubmit)="checkForm()"
-    [formGroup]="form"
-    autocomplete="off"
-    class="d-grid grid-container-4-col w-100"
-  >
-    <mat-form-field>
-      <mat-label>Edit name</mat-label>
-      <input
-        matInput
-        type="text"
-        [formControlName]="'name'"
-        [placeholder]="'Enter a name'"
-      />
-      <mat-error *ngIf="form.invalid">No name entered</mat-error>
-    </mat-form-field>
+  <form (ngSubmit)="checkForm()" [formGroup]="form" autocomplete="off">
+    <div formArrayName="items">
+      <div *ngFor="let item of items.controls; let i = index">
+        <div [formGroupName]="i" class="d-grid grid-container-4-col w-100">
+          <mat-form-field>
+            <mat-label>Edit name</mat-label>
+            <input
+              matInput
+              type="text"
+              [formControlName]="'name'"
+              [placeholder]="'Enter a name'"
+            />
+            <mat-error *ngIf="form.invalid">No name entered</mat-error>
+          </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Edit stock</mat-label>
-      <input
-        matInput
-        type="number"
-        [formControlName]="'stock'"
-        [placeholder]="'Enter a stock'"
-      />
-      <mat-error *ngIf="form.invalid">No stock entered</mat-error>
-    </mat-form-field>
+          <mat-form-field>
+            <mat-label>Edit stock</mat-label>
+            <input
+              matInput
+              type="number"
+              [formControlName]="'stock'"
+              [placeholder]="'Enter a stock'"
+            />
+            <mat-error *ngIf="form.invalid">No stock entered</mat-error>
+          </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Edit price</mat-label>
-      <input
-        matInput
-        type="number"
-        [formControlName]="'price'"
-        [placeholder]="'Enter a price'"
-      />
-      <mat-error *ngIf="form.invalid">No price entered</mat-error>
-    </mat-form-field>
+          <mat-form-field>
+            <mat-label>Edit price</mat-label>
+            <input
+              matInput
+              type="number"
+              [formControlName]="'price'"
+              [placeholder]="'Enter a price'"
+            />
+            <mat-error *ngIf="form.invalid">No price entered</mat-error>
+          </mat-form-field>
 
-    <button
-      mat-raised-button
-      matSuffix
-      color="primary"
-      aria-label="Upload products"
-      type="submit"
-      class="submit-button"
-    >
-      Upload
-    </button>
+          <button
+            mat-raised-button
+            matSuffix
+            color="primary"
+            aria-label="Upload products"
+            type="submit"
+            class="submit-button"
+          >
+            Upload
+          </button>
+        </div>
+      </div>
+    </div>
   </form>
 </div>

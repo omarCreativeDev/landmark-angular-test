@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { delay, finalize, take } from 'rxjs/operators';
@@ -34,8 +34,18 @@ export class UploadFormComponent implements OnInit {
     }
   }
 
+  get items(): FormArray {
+    return this.form.get('items') as FormArray;
+  }
+
   public setupForm(): void {
     this.form = this.formBuilder.group({
+      items: new FormArray([this.addFormGroup()]),
+    });
+  }
+
+  public addFormGroup(): FormGroup {
+    return this.formBuilder.group({
       name: [null, [Validators.required]],
       stock: [null, [Validators.required]],
       price: [null, [Validators.required]],
@@ -46,7 +56,7 @@ export class UploadFormComponent implements OnInit {
     this.uploadProductsService.loading$.next(true);
 
     return this.uploadProductsService
-      .uploadProducts(this.form.value)
+      .uploadProducts(this.form.value.items)
       .pipe(
         take(1),
         delay(1000),

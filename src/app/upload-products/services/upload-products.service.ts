@@ -13,13 +13,11 @@ export class UploadProductsService {
 
   constructor(private productsService: ProductsService) {}
 
-  public uploadProducts(product: Product): Observable<Product[]> {
-    this.productsService.products = [
-      {
-        ...product,
-        updated: new Date().toString(),
-      },
-    ];
+  public uploadProducts(products: Product[]): Observable<Product[]> {
+    this.productsService.products = products.map((product: Product) => ({
+      ...product,
+      updated: new Date().toString(),
+    }));
     return of(this.productsService.products);
   }
 }
